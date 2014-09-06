@@ -1,17 +1,28 @@
-<div class="jumbotron">
-  <div class="container">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
 
-    <h1>{{.Title}}</h1>
+            <h3>Check weekend's reservations on camping grounds</h3>
+            <table class="table">
+                <thead>
+                    <th>Facility</th>
+                    {{range .Days}}
+                        <th>{{ . }}</th>
+                    {{end}}
+                </thead>
+                <tbody>
+                    {{range .Facilities}}
+                    <tr>
+                        <td>{{ .Name }}</td>
+                        {{range .Availabilities}}
+                            <td>{{ .Condition }}</td>
+                        {{end}}
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
 
-    <form class="form-inline" action="/" method="post">
-        <input type="text" name="tweet" class="form-control">
-        <button type="submit" class="btn">Tweet</button>
-    </form>
-
-    <p class="lead">{{.Tweets}}</p>
-
-    <p>{{.Now}}</p>
-
-  </div>
+        </div>
+    </div>
 </div>
 

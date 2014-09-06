@@ -22,7 +22,6 @@ func init() { // appengineではmainではなくinit
     })
 
     m.Get("/", IndexRender)
-    m.Post("/", IndexPostHandler)
 
     //m.Run() // appengineでは↓http.Handle("/", m)
     http.Handle("/", m)
